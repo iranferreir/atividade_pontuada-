@@ -11,27 +11,54 @@ import os
 
 # Limpa o terminal.
 os.system("cls || clear") 
+lista_compra = []
+
+picanha = 45.00
+lasanha = 30.00
+strogonoff = 25.00
+bife_acebolado = 40.00
+frango_grelhado = 45.00
+peixe_assado = 55.00
+bife_a_milanesa = 45.00
 
 print("""
-1- Feijoada  === 0001
-2- Arroz carreteiro === 0002
-3- Coxinha === 0003     
-4- Moqueca de peixe === 0004
-5- Acarajé === 0005
-6- Pato no tucupi === 0006
-7- Bobó de camarão === 0007
+      1 - Picanha - R$25,00
+      2 - Lasanha - R$20,00
+      3 - Strogonoff - R$18,00
+      4 - Bife Acebolado - R$15,00
+      5 - Pão com ovo - R$5,00  
 """)
-codigo1 = "0001"
-codigo2 = "0002"
-codigo3 = "0003"
-codigo4 = "0004"
-codigo5 = "0005"
-codigo6 = "0006"
-codigo7 = "0007"
 
-opcao = int(input("digite seu prato de comida: "))
+opcao = int(input("Digite o código do seu pedido: "))
 
 match(opcao):
-    case "codigo1": 
-        print("Feijoada")        
-   
+    case 1:
+        lista_compra.append(picanha)
+        print("Picanha foi adiconada no seu pedido")
+    case 2:
+        lista_compra.append(lasanha)
+        print("Lasanha foi adiconada no seu pedido")
+    case 3:
+        lista_compra.append(strogonoff)
+        print("Strogonoff foi adiconado ao seu pedido")
+    case 4:
+        lista_compra.append(bife_acebolado)
+        print("Bife acebolado foi adicionado ao seu pedido") 
+    case 5:
+        lista_compra.append(frango_grelhado)
+        print("Frango Grelhado foi adiconado no seu pedido")
+    case 6:
+        lista_compra.append(peixe_assado)
+        print("Peixe Assado foi adiconado no seu pedido")
+    case 7:
+        lista_compra.append(bife_a_milanesa)
+        print("Bife à milanesa a milanesa foi adiconado no seu pedido")
+    case _:
+        print("Opção incorreta. Tente Novamente")
+while True:
+    opcao2 = input("Deseja fazer mais um pedido?")
+    print("""1 - Sim
+             2 - Não""")
+        df
+
+        
