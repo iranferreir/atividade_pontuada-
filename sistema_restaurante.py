@@ -12,7 +12,9 @@ import os
 # Limpa o terminal.
 os.system("cls || clear") 
 lista_compra = []
-lista_compra_total = []
+formas_de_pagamento = []
+a_vista = 0
+lista_itens = []
 
 picanha = 45.00
 lasanha = 30.00
@@ -31,9 +33,15 @@ print("""
 """)
 
 while True:
-    opcao = int(input("Digite o código do seu pedido: "))
+    while True:
+        opcao = int(input("Digite o código do seu pedido: "))
+        if opcao < 1 or opcao >= 8:
+            print("Opção incorreta. Tente Novamente")
+        else:
+            break
     match(opcao):
         case 1:
+            lista_itens.append("Picanha : 45.00")
             lista_compra.append(picanha)
             print("Picanha foi adiconada no seu pedido")
         case 2:
@@ -56,43 +64,60 @@ while True:
             print("Bife à milanesa a milanesa foi adiconado no seu pedido")
         case 0:
             break
-        case _:
-            print("Opção incorreta. Tente Novamente")
-
-    opcao2 = int(input("""Deseja fazer mais um pedido?
-1 - Sim      2 - Não
+    while True:
+        opcao2 = int(input("""Deseja fazer mais um pedido?
+1 - Sim      0 - Não
 =>"""))
+        if (opcao2 == 1) or (opcao2 == 0):
+            break
+        else:
+            print("TENTE NOVAMENTE")
 
     match(opcao2):
         case 1:
-            print("Escolha outro pedido")
-        case 2:
+            print("Escolha um pedido")
+        case 0:
             break
+while True:
+    opcao3 = int(input("""Qual a sua forma de pagamento: 
+    1 - Pagamento à vista(10% de desconto)    
+    2 - Pagamento no cartão de crédito(10% a mais do preço total)
+    =>"""))
+    if opcao3 == 1 or opcao3 == 2:
+        break
+    else:
+        print("Opção incorreta. ")
 
-def pagamento_a_vista():
-    desconto = lista_compra * 0.10 
-    total_a_vista =  lista_compra - desconto
-    return total_a_vista
+def pagamento (total:float, opcao:int):
+    soma = sum(total)
+    desconto = soma *0.1
+    if opcao == 1:
+        valor_final = soma - desconto
+        print("Pagamento selecionado: à vista")
+        print(f"Valor Bruto: {soma}")
+        print(f"Desconto: {desconto:.2f}")
+        print(f"Total a pagar: {valor_final}")
+    else:
+        valor_final = soma + desconto
+        print("Pagamento selecionado: Cartão de crédito")
+        print(f"Valor Bruto: {soma}")
+        print(f"Acréscimo: {desconto:.2f}")
+        print(f"Total a pagar: {valor_final}")
 
-total_a_vista = pagamento_a_vista()
-
-def pagamento_cartao_de_credito(a):
-    desconto = a * 0.10
-    total_cartao_de_credito = a + desconto
-    return total_cartao_de_credito
-
-total_cartao_de_credito = pagamento_cartao_de_credito(lista_compra)
-
-
-
-opcao3 = int(input("Qual a sua forma de pagamento: "))
 match(opcao3):
-    case 1:
-        print("Você escolheu o pagamento à vista")
-        lista_compra_total.append(total_a_vista)
-    case 2:
-        print("Você escolheu o pagamento no cartão de crédito")
-        lista_compra_total.append(total_cartao_de_credito)
+        case 1 | 2 :
+            resultado = pagamento(lista_compra, opcao3)
+            for pag in lista_itens:
+                print(f"Lista de itens: {pag}")
+            
+        
+
+
+
+
+
+
+
 
 
 

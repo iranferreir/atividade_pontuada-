@@ -17,8 +17,8 @@ Desenvolvam juntos um sistema que permita ao usuário visualizar o cardápio com
    - **Cartão de crédito** (acréscimo de 10% sobre o valor total).
 7. Exibir os resultados ao final:
    - A lista com os **códigos e nomes dos pratos escolhidos**.
-   - O **subtotal** (valor total sem acréscimo ou desconto).
-   - A **forma de pagamento** escolhida.
+ # - O **subtotal** (valor total sem acréscimo ou desconto).
+  # - A **forma de pagamento** escolhida.
    - O **valor do desconto ou acréscimo** aplicado.
    - O **valor final a ser pago**.
 
